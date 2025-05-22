@@ -1,0 +1,72 @@
+[gd_scene load_steps=11 format=3 uid="uid://ndnvj1w1ou5"]
+
+[ext_resource type="Texture2D" uid="uid://ckfhpf2d16wh3" path="res://imagenes/FBsprites-20250520T230341Z-1-001/FBsprites/yellowbird-downflap.png" id="1_1glof"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_jgpxu"]
+[ext_resource type="Texture2D" uid="uid://dfmw0n22cmgyb" path="res://imagenes/FBsprites-20250520T230341Z-1-001/FBsprites/yellowbird-midflap.png" id="2_tmi1w"]
+[ext_resource type="Texture2D" uid="uid://c0rnxmsqgmu6o" path="res://imagenes/FBsprites-20250520T230341Z-1-001/FBsprites/yellowbird-upflap.png" id="3_f7v1f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gvll"]
+atlas = ExtResource("1_1glof")
+region = Rect2(0, 0, 34, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acb22"]
+atlas = ExtResource("2_tmi1w")
+region = Rect2(0, 0, 34, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t2axd"]
+atlas = ExtResource("3_f7v1f")
+region = Rect2(0, 0, 34, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxixg"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6gvll")
+}],
+"loop": true,
+"name": &"down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acb22")
+}],
+"loop": true,
+"name": &"mid",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t2axd")
+}],
+"loop": true,
+"name": &"up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sxvqi"]
+radius = 13.1529
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6xvq"]
+size = Vector2(35, 28)
+
+[node name="player" type="RigidBody2D"]
+script = ExtResource("1_jgpxu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xxixg")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_sxvqi")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_m6xvq")
