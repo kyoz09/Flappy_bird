@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://yjlo5dxtwhhp"]
+
+[ext_resource type="Texture2D" uid="uid://bp8ylueanynyk" path="res://imagenes/FBsprites-20250520T230341Z-1-001/FBsprites/base.png" id="1_vsfo2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk3wm"]
+size = Vector2(401, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7p0w"]
+size = Vector2(393, 110)
+
+[node name="game" type="Node2D"]
+
+[node name="tope" type="StaticBody2D" parent="."]
+position = Vector2(4, 5)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tope"]
+position = Vector2(190.5, 3.5)
+shape = SubResource("RectangleShape2D_nk3wm")
+
+[node name="suelo" type="StaticBody2D" parent="."]
+position = Vector2(193, 592)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="suelo"]
+scale = Vector2(1.16667, 1)
+texture = ExtResource("1_vsfo2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="suelo"]
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_j7p0w")
