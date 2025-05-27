@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://yjlo5dxtwhhp"]
+[gd_scene load_steps=6 format=3 uid="uid://yjlo5dxtwhhp"]
 
+[ext_resource type="Script" path="res://scripts/game.gd" id="1_jopjo"]
 [ext_resource type="Texture2D" uid="uid://bp8ylueanynyk" path="res://imagenes/FBsprites-20250520T230341Z-1-001/FBsprites/base.png" id="1_vsfo2"]
 [ext_resource type="PackedScene" uid="uid://ndnvj1w1ou5" path="res://escenas/player.tscn" id="2_6af3a"]
 
@@ -10,6 +11,7 @@ size = Vector2(401, 27)
 size = Vector2(393, 110)
 
 [node name="game" type="Node2D"]
+script = ExtResource("1_jopjo")
 
 [node name="tope" type="StaticBody2D" parent="."]
 position = Vector2(4, 5)
@@ -32,3 +34,8 @@ position = Vector2(0.5, 1)
 shape = SubResource("RectangleShape2D_j7p0w")
 
 [node name="player" parent="." instance=ExtResource("2_6af3a")]
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
