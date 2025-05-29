@@ -4,38 +4,41 @@
 [ext_resource type="Texture2D" uid="uid://bcdspfodcufqf" path="res://imagenes/FBsprites-20250520T230341Z-1-001/FBsprites/pipe-green.png" id="1_lr6ux"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_12ey1"]
-size = Vector2(55, 318.5)
+size = Vector2(55, 543.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s88mf"]
-size = Vector2(55, 320.5)
+size = Vector2(55, 531.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ogrsb"]
 size = Vector2(58, 184)
 
 [node name="obstacles" type="Node2D"]
-position = Vector2(-6, 34)
+position = Vector2(20, -166)
 script = ExtResource("1_5xkq8")
 metadata/_edit_group_ = true
+metadata/_edit_horizontal_guides_ = [479.0]
 
 [node name="tuberia1" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="tuberia1"]
-position = Vector2(189, 94)
+position = Vector2(189, -17)
 rotation = 3.14159
+scale = Vector2(1, 1.69375)
 texture = ExtResource("1_lr6ux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tuberia1"]
-position = Vector2(189.5, 94.25)
+position = Vector2(189.5, -18.25)
 shape = SubResource("RectangleShape2D_12ey1")
 
 [node name="tuberia2" type="Area2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="tuberia2"]
-position = Vector2(187, 601)
+position = Vector2(187, 708)
+scale = Vector2(1, 1.66875)
 texture = ExtResource("1_lr6ux")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="tuberia2"]
-position = Vector2(187, 601.75)
+position = Vector2(187, 707.25)
 shape = SubResource("RectangleShape2D_s88mf")
 
 [node name="score" type="Area2D" parent="."]
