@@ -13,7 +13,7 @@ size = Vector2(55, 531.5)
 size = Vector2(58, 184)
 
 [node name="obstacles" type="Node2D"]
-position = Vector2(20, -166)
+position = Vector2(-10, 22)
 script = ExtResource("1_5xkq8")
 metadata/_edit_group_ = true
 metadata/_edit_horizontal_guides_ = [479.0]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://yjlo5dxtwhhp"]
+[gd_scene load_steps=12 format=3 uid="uid://yjlo5dxtwhhp"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_jopjo"]
 [ext_resource type="Texture2D" uid="uid://bp8ylueanynyk" path="res://imagenes/FBsprites-20250520T230341Z-1-001/FBsprites/base.png" id="1_vsfo2"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://br6y081b8fg0w" path="res://escenas/parallax_background.tscn" id="4_ggw3t"]
 [ext_resource type="FontFile" uid="uid://bekt1lmvek63x" path="res://starborn/Starborn.otf" id="5_m676o"]
 [ext_resource type="Texture2D" uid="uid://bn83we6gmhhvu" path="res://imagenes/FBsprites-20250520T230341Z-1-001/FBsprites/message.png" id="6_ac6hu"]
-[ext_resource type="Script" path="res://escenas/message.gd" id="7_o4yjx"]
+[ext_resource type="Script" path="res://scripts/message.gd" id="7_o4yjx"]
+[ext_resource type="Texture2D" uid="uid://de3hegqvsvx7t" path="res://imagenes/FBsprites-20250520T230341Z-1-001/FBsprites/gameover.png" id="8_wyb4m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nk3wm"]
 size = Vector2(401, 27)
@@ -29,7 +30,7 @@ metadata/_edit_group_ = true
 position = Vector2(190.5, 3.5)
 shape = SubResource("RectangleShape2D_nk3wm")
 
-[node name="suelo" type="StaticBody2D" parent="."]
+[node name="suelo" type="StaticBody2D" parent="." groups=["suelo"]]
 position = Vector2(193, 592)
 metadata/_edit_group_ = true
 
@@ -61,9 +62,13 @@ vertical_alignment = 1
 
 [node name="message" type="Sprite2D" parent="."]
 process_mode = 3
-position = Vector2(198, 284.25)
-scale = Vector2(1.16304, 1.22659)
+position = Vector2(201, 303)
+scale = Vector2(1.16304, 1.23221)
 texture = ExtResource("6_ac6hu")
 script = ExtResource("7_o4yjx")
+
+[node name="game over" type="Sprite2D" parent="message"]
+position = Vector2(-1.71963, -155.006)
+texture = ExtResource("8_wyb4m")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

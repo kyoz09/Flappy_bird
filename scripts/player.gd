@@ -15,7 +15,13 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 func game_over():
 	get_tree().paused = true
+	$"../message".show()
+	$"../message/game over".show()
 
 func raise_score():
 	score += 1
 	$"../Label".text = str(score)
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("suelo"):
+		game_over()

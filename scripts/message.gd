@@ -7,3 +7,4 @@ func _input(event: InputEvent) -> void:
 		get_tree().reload_current_scene()
 	else:
 		$".".hide()
+		$"game over".hide()
