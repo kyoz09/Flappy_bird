@@ -18,4 +18,4 @@ func game_over():
 
 func raise_score():
 	score += 1
-	
+	$"../Label".text = str(score)

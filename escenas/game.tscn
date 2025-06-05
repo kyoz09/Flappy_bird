@@ -1,15 +1,22 @@
-[gd_scene load_steps=7 format=3 uid="uid://yjlo5dxtwhhp"]
+[gd_scene load_steps=11 format=3 uid="uid://yjlo5dxtwhhp"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_jopjo"]
 [ext_resource type="Texture2D" uid="uid://bp8ylueanynyk" path="res://imagenes/FBsprites-20250520T230341Z-1-001/FBsprites/base.png" id="1_vsfo2"]
 [ext_resource type="PackedScene" uid="uid://ndnvj1w1ou5" path="res://escenas/player.tscn" id="2_6af3a"]
 [ext_resource type="PackedScene" uid="uid://br6y081b8fg0w" path="res://escenas/parallax_background.tscn" id="4_ggw3t"]
+[ext_resource type="FontFile" uid="uid://bekt1lmvek63x" path="res://starborn/Starborn.otf" id="5_m676o"]
+[ext_resource type="Texture2D" uid="uid://bn83we6gmhhvu" path="res://imagenes/FBsprites-20250520T230341Z-1-001/FBsprites/message.png" id="6_ac6hu"]
+[ext_resource type="Script" path="res://escenas/message.gd" id="7_o4yjx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nk3wm"]
 size = Vector2(401, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j7p0w"]
 size = Vector2(393, 110)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s5d83"]
+font = ExtResource("5_m676o")
+font_size = 30
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_jopjo")
@@ -41,5 +48,22 @@ wait_time = 3.0
 autostart = true
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("4_ggw3t")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 173.0
+offset_top = 35.0
+offset_right = 201.0
+offset_bottom = 70.0
+text = "0"
+label_settings = SubResource("LabelSettings_s5d83")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="message" type="Sprite2D" parent="."]
+process_mode = 3
+position = Vector2(198, 284.25)
+scale = Vector2(1.16304, 1.22659)
+texture = ExtResource("6_ac6hu")
+script = ExtResource("7_o4yjx")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
